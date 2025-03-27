@@ -1,18 +1,11 @@
 import "../App.jsx";
 import "../App.css";
-// import { Films } from "./Films.jsx";
-// import { Logout } from "./Logout.jsx";
 import { useState } from "react";
-
-// Логин - shfe-diplom@netology.ru
-// Пароль - shfe-diplom
 
 export const HallManager = () => {
     const params = new FormData();
     let hallsResponse = [];
     let hallArr = [];
-    // let key = 0;
-    // let hallIdArr = [];
     let hallElements = [];
     let [halls, setHalls] = useState();  
 
@@ -63,8 +56,6 @@ export const HallManager = () => {
             method: 'DELETE',
         })
             .then( response => response.json())
-            // .then( data => console.log( data ));
-
     }
 
     function createHall(){
