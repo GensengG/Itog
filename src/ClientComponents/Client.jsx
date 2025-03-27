@@ -5,12 +5,7 @@ import { Logout } from "./Logout.jsx";
 import { useState } from "react";
 
 export const Client = () => {
-
-    // let logoutState = []; 
-
     function loginBtn(){
-        // logoutState = <Logout/>
-
         setState(state = (
             <Logout/>
         ))
@@ -28,11 +23,6 @@ export const Client = () => {
 
     return (
         <>
-            {/* <header className="head">
-                <div className="logo">ИДЁМ<p className="logo__B">В</p>КИНО</div>
-                <button className="header__btn" onClick={loginBtn}>Войти</button>
-            </header>
-            <Films/> */}
             {state}
         </>
     );
