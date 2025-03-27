@@ -38,11 +38,9 @@ body{
 }
 
 .header__btn{
-  /* display: inline; */
   border: 1px solid rgb(9, 128, 116);
   background-color: rgb(9, 128, 116);
   border-radius: 6px;
-  /* width: 70px; */
   text-align: center;
 }
 
@@ -101,8 +99,6 @@ body{
 
 .form__item__input :focus{
   outline: none;
-  /* border-radius: 0px;
-  border: 1px solid rgb(150, 150, 150); */
 }
 
 .form__submit__input{
@@ -112,7 +108,6 @@ body{
   margin: 10px 20% 40px 20%;
   border-radius: 5px;
   font-size: 12px;
-  /* border-radius: 0; */
 }
 
 .client__main, .admin__main{
@@ -223,7 +218,6 @@ body{
   right: 2%;
   top: 10%;
   background-color: rgb(155, 113, 161);
-  /* width: 5%; */
 }
 
 .section__header__arrow:hover{
@@ -321,13 +315,11 @@ body{
 }
 
 .label__row{
-  /* width: 45%; */
   position: absolute;
   top: -25%;
 }
 
 .label__place{
-  /* width: 45%; */
   position: absolute;
   top: -25%;
   left: 55%;
@@ -371,7 +363,6 @@ body{
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  /* flex-direction: column; */
   border: 1px solid black;
   padding-top: 5%;
   padding-bottom: 5%;
@@ -431,7 +422,6 @@ body{
   gap: 10px;
   justify-content: space-between;
   padding: 40px;
-  /* padding: 20px 0 20px 100px; */
 }
 
 .popup__header{
