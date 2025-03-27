@@ -3,8 +3,6 @@ import "../App.css";
 import { useState } from "react";
 import { Admin } from "../AdminComponents/Admin.jsx";
 
-// export let responseLogIn = "";
-
 export const Logout = () => {
     let email = "";
     let password = "";
@@ -30,7 +28,6 @@ export const Logout = () => {
         .then( response => response.json())
         .then( response => {
                 result = response;
-                // console.log(result);
             }
         );       
 
@@ -39,11 +36,9 @@ export const Logout = () => {
                 <Admin />
             ));
         } else {
-            // alert(result.error);
+            alert(result.error);
         } 
     }          
-        // Логин - shfe-diplom@netology.ru
-        // Пароль - shfe-diplom
 
     let [admin, setAdmin] = useState((
         <>
