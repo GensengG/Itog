@@ -1,11 +1,6 @@
 import "../App.jsx";
 import "../App.css";
 import { useState } from "react";
-// import { Sheme } from "./Sheme.jsx";
-
-// Логин - shfe-diplom@netology.ru
-// Пароль - shfe-diplom
-
 export const HallOpened = () => {    
     
     function hideSection(e) {
@@ -24,8 +19,7 @@ export const HallOpened = () => {
     let [id, setId] = useState();
     let [open, setOpen] = useState();
     let [openInfo, setOpenInfo] = useState({text: "Выберите зал", btn: "Открыть/Закрыть зал"});
-    
-    // function getHallInfo () {
+
     fetch( 'https://shfe-diplom.neto-server.ru/alldata' )
     .then( response => response.json())
     .then( data => {
@@ -41,7 +35,6 @@ export const HallOpened = () => {
             setHalls(halls = hallElements);
         }
     );
-    // }
     
     function hallNameChecked(e) {
         let hallName = e.target.textContent;
