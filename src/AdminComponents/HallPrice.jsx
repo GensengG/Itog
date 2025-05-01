@@ -1,10 +1,6 @@
 import "../App.jsx";
 import "../App.css";
 import { useState } from "react";
-// import { Sheme } from "./Sheme.jsx";
-
-// Логин - shfe-diplom@netology.ru
-// Пароль - shfe-diplom
 
 export const HallPrice = () => {    
     
@@ -28,7 +24,6 @@ export const HallPrice = () => {
     let [priceInfo, setPriceInfo] = useState({standart: 0, vip: 0});
     let [priceInfoFixed, setPriceInfoFixed] = useState({standart: 0, vip: 0});
     
-    // function getHallInfo () {
     fetch( 'https://shfe-diplom.neto-server.ru/alldata' )
     .then( response => response.json())
     .then( data => {
@@ -44,7 +39,6 @@ export const HallPrice = () => {
             setHalls(halls = hallElements);
         }  
     );
-    // }
     
     function hallNameChecked(e) {
         let hallName = e.target.textContent;
