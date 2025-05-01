@@ -1,11 +1,6 @@
 import "../App.jsx";
 import "../App.css";
 import { useState } from "react";
-// import { Sheme } from "./Sheme.jsx";
-
-// Логин - shfe-diplom@netology.ru
-// Пароль - shfe-diplom
-
 export const SessionGrid = () => {    
     
     function hideSection(e) {
@@ -33,18 +28,13 @@ export const SessionGrid = () => {
     let [nameHall, setNameHall] = useState({name: "", id: 0});
     let [seances, setSeances] = useState();
     let [posters, setPoster] = useState("Постер еще не выбран");
-    // let randomColor = `#${Math.floor(Math.random() * 0xFFFFFF).toString(16).padEnd(6, '0')}`;
-    // let [priceInfoFixed, setPriceInfoFixed] = useState({standart: 0, vip: 0});
     
-    // function getHallInfo () {
     fetch( 'https://shfe-diplom.neto-server.ru/alldata' )
     .then( response => response.json())
     .then( data => {
-            // console.log(data.result.seances);
             sessionResponse = data.result.seances;
             filmsResponse = data.result.films;
             hallsResponse = data.result.halls;
-            // console.log(sessionResponse);
             for (let i = 0; i < filmsResponse.length; i++){
                 filmsInfo.push({
                     name: filmsResponse[i]["film_name"],
@@ -68,9 +58,7 @@ export const SessionGrid = () => {
             ));
 
             console.log(sessionResponse);
-
-            // let filmsInfoArr = document.getElementsByClassName("films__list__item");
-            // const randomColor = `#${Math.floor(Math.random() * 0xFFFFFF).toString(16).padEnd(6, '0')}`;
+        
             function intoLent (date) {
                 let id = 0;
                 for(let i = 0; i < hallsResponse.length; i++){
@@ -86,13 +74,10 @@ export const SessionGrid = () => {
                     }
                 }
 
-                // console.log(oneHallSession)
-
                 for(let i = 0; i < oneHallSession.length; i++){
                     for(let j = 0; j < filmsInfo.length; j++){
                         if(filmsInfo[j].id === oneHallSession[i]["seance_filmid"]){
                             oneHallSession[i].name = filmsInfo[j].name;
-                //             oneHallSession[i].time = filmsInfo[j].name;
                         }
                     }
                 }
@@ -107,9 +92,6 @@ export const SessionGrid = () => {
 
                 return oneHall;
             }
-
-            // console.log(filmsInfo);
-            // console.log(intoLent("Зал 2"));
 
             setFilms(films = filmsElements);
 
@@ -132,125 +114,10 @@ export const SessionGrid = () => {
         }  
     );
 
-    
-
-    function getCoords(elem) {
-        // (1)
-        let box = elem.getBoundingClientRect();
-      
-        let body = document.body;
-        let docEl = document.documentElement;
-      
-        // (2)
-        let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-        let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-      
-        // (3)
-        let clientTop = docEl.clientTop || body.clientTop || 0;
-        let clientLeft = docEl.clientLeft || body.clientLeft || 0;
-      
-        // (4)
-        let top = box.top + scrollTop - clientTop;
-        let left = box.left + scrollLeft - clientLeft;
-      
-        return {
-          top: top,
-          left: left
-        };
-    }
-
-    // function test(e){
-        
-        // let elementParent = e.target.parentElement;
-        // let filmItem = elementParent.closest("div");
-        // let film = "";
-        // if(filmItem.className === "film__item__info"){
-        //     film = filmItem.parentElement;
-        // } else {
-        //     film = filmItem;
-        // }
-
-        // Вариант без клонирования
-        // let coords = getCoords(film);
-        // let shiftX = e.pageX - coords.left;
-        // let shiftY = e.pageY - coords.top;
-        // film.style.position = 'absolute';
-        // document.body.appendChild(film);
-        // moveAt(e);
-        // film.style.zIndex = 1000; 
-        // function moveAt(e) {
-        //   film.style.left = e.pageX - shiftX + 'px';
-        //   film.style.top = e.pageY - shiftY + 'px';
-        // }
-        // document.onmousemove = function(e) {
-        //   moveAt(e);
-        // };
-        // film.onmouseup = function() {
-        //   document.onmousemove = null;
-        //   film.onmouseup = null;
-        // };
-        // film.ondragstart = function() {
-        //     return false;
-        // };
-        // function getCoords(film) {  
-        //     let box = film.getBoundingClientRect();
-        //     return {
-        //       top: box.top + pageYOffset,
-        //       left: box.left + pageXOffset
-        //     }
-        // };
-        // console.log(film)
-
-
-        //Вариант с кдлнированием
-        // film.style.position = 'absolute';
-        // moveAt(e);
-        
-        // document.body.appendChild(film);
-      
-        // film.style.zIndex = 1000; 
-
-        // function moveAt(e) {
-        //     film.style.left = e.pageX - film.offsetWidth / 2 + 'px';
-        //     film.style.top = e.pageY - film.offsetHeight / 2 + 'px';
-        // }
-        
-        // document.onmousemove = function(e) {
-        //   moveAt(e);
-        // }
-      
-        // film.onmouseup = function() {
-        //   document.onmousemove = null;
-        //   film.onmouseup = null;
-        // }
-
-        // let lents = document.getElementsByClassName("session__lent");
-
-        // function onMouseMove(e) {
-        //     moveAt(e.pageX, e.pageY);
-          
-        //     film.hidden = true;
-        //     let elemBelow = document.elementFromPoint(e.clientX, e.clientY);
-        //     film.hidden = false;
-
-        //     if (!elemBelow) return;
-        //     let droppableBelow = elemBelow.closest('.session__lent');
-        //     if (lents != droppableBelow) {
-        //         if (currentDroppable) {
-        //             leaveDroppable(lents);
-        //         }
-        //         lents = droppableBelow;
-        //         if (lents) {
-        //             enterDroppable(lents);
-        //         }
-        //     }          
-        // }
-    // }
     function start(e){
         let elementParent = e.target.closest("div");
         let nameDiv = elementParent.getElementsByClassName("film__item__name");
         elementParent.classList.add("selected");
-        // console.log(nameDiv[0].textContent);
         setNameFilm(nameFilm = nameDiv[0].textContent);
     };
 
@@ -261,16 +128,9 @@ export const SessionGrid = () => {
 
     function drop(e){
         e.preventDefault();
-
-        // let activeElement = document.querySelector("selected");
         let currentElement = e.target;
         let activeHall = e.target.previousElementSibling;
         let activeHallName = activeHall.closest("div");
-        // let isMoveable = activeElement !== currentElement;
-        // if (!isMoveable) {
-        //     return;
-        // }
-        // console.log(activeHall);
 
         e.target.addEventListener("drop", (e) => {
             e.preventDefault();
@@ -281,7 +141,6 @@ export const SessionGrid = () => {
                     
             for (let i = 0; i < hallsResponse.length; i++){
                 if(hallsResponse[i]["hall_name"] === activeHall){
-                    // setId(id = hallsResponse[i].id)
                     hallId = hallsResponse[i].id;
                     let hallInfo = {
                         name: activeHall,
@@ -379,19 +238,7 @@ export const SessionGrid = () => {
         })
         .then( response => response.json())
         .then( data => console.log( data ));
-
-        // console.log(poster.value);
     }
-
-    // function ShowPopupPoster(){
-    //     const popUp = document.getElementById("popup__background__add__poster");
-    //     popUp.style.display = "block";
-    // }
-
-    // function hidePopupPoster() {
-    //     const popUp = document.getElementById("popup__background__add__poster");
-    //     popUp.style.display = "none";
-    // }
 
     function ShowPopupSession(){
         const popUp = document.getElementById("popup__background__add__session");
@@ -406,7 +253,7 @@ export const SessionGrid = () => {
     function posterAdd() {
         poster.click();
         poster.onchange = function() {
-            if (this.files[0].size > 3145728) { // Ограничение размера файла до 1МБ: 1024 * 1024
+            if (this.files[0].size > 3145728) { 
               alert("Размер файла превышен, выберите файл меньше 3МБ.");
               this.value = '';
             }
@@ -427,7 +274,6 @@ export const SessionGrid = () => {
         let seanceHallid = 0;
         let seanceFilmid = 0;
 
-        // let sessions = seances;
         for (let i = 0; i < filmsInfo.length; i++){
             if(filmsInfo[i]["name"] === filmName.value){
                 filmDuration = filmsInfo[i]["time"]
@@ -442,23 +288,11 @@ export const SessionGrid = () => {
 
         for (let i = 0; i < filmsInfo.length; i++){
             if(filmsInfo[i]["name"] === filmName.value){
-                // seanceHallid = seances[i]["hallId"];
                 seanceFilmid = filmsInfo[i].id;
             }
         }
-        
-        // for (let i = 0; i < filmsInfo.length; i++){
-        //     if(filmsInfo[i]["name"] === filmName.value){
-        //         // seanceHallid = seances[i]["hallId"];
-        //         seanceFilmid = filmsInfo[i].id;
-        //     }
-        // }
 
         for (let i = 0; i < seances.length; i++){
-            // if(seances[i]["name"] === filmName.value){
-            //     seanceHallid = seances[i]["hallId"];
-            //     seanceFilmid = seances[i]["filmId"];
-            // }
 
             let start = seances[i]["timeStart"];
             let minutesStart = Number(start.slice(-2));
@@ -501,7 +335,6 @@ export const SessionGrid = () => {
         })
         .then( response => response.json())
         .then( data => console.log( data ))
-        // console.log(nameHall)
     }
 
     function sessionBtnCancel(e){
